@@ -24,7 +24,7 @@ k8s-api-sans-hosts = ["k8s.example.com"]
 |ebs_block_device | ebs block device | list(map(string)) | no | no |
 |ephemeral_block_device| ephemeral block device |  list(map(string)) | no | no |
 | Name | instances prefix name | string | rancher | yes |
-| user | ssh user of ec2 instances | string | rancher" | yes|
+| user | ssh user of ec2 instances | string | rancher | yes|
 |monitor | monitor ec2 instances | bool | true | no|
 |key_name| key pair name | string | no | yes |
 |subnet_id | ec2 subnet id| string | no | yes |
