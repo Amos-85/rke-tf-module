@@ -119,7 +119,7 @@ variable "cloud-provider" {
 }
 
 variable "s3-backup-config" {
-  description = "s3 backup configuraion for cluster"
+  description = "s3 backup configuration for cluster"
   type = map(string)
   default = {
     interval_hours = 12
