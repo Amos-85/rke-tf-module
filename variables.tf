@@ -103,7 +103,7 @@ variable "k8s-cluster-name" {
 variable "k8s-api-sans-hosts" {
   description = "rancher k8s api hosts list to authenticate k8s api"
   type = list(string)
-  default = ["rancher-k8s.ddns.net"]
+  default = null
 }
 
 variable "k8s-network-plugin" {
