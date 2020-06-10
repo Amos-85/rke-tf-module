@@ -19,12 +19,12 @@ k8s-api-sans-hosts = ["k8s.example.com"]
 |------|-------------|:----:|:-----:|:-----:|
 | ami | ID of AMI to use for the instance | string | ami-002ab867b8b8591d5 | yes |
 |instance_count | map of k8s instances by roles | map(string)| etcd=1,control-plane=1,worker=1 | yes |
-|instance_type | map of k8s instance types | map(string) | etcd=t2.large,control-plane=t2.large,worker=t2.large |
-| root_block_device | root block device configuration | list(map(string)) | | no |
+|instance_type | map of k8s instance types | map(string) | etcd=t2.large,control-plane=t2.large,worker=t2.large | yes|
+| root_block_device | root block device configuration | list(map(string)) | no | no |
 |ebs_block_device | ebs block device | list(map(string)) | no | no |
 |ephemeral_block_device| ephemeral block device |  list(map(string)) | no | no |
 | Name | instances prefix name | string | rancher | yes |
-| user | ssh user of ec2 instances | string | rancher" yes|
+| user | ssh user of ec2 instances | string | rancher" | yes|
 |monitor | monitor ec2 instances | bool | true | no|
 |key_name| key pair name | string | no | yes |
 |subnet_id | ec2 subnet id| string | no | yes |
