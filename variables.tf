@@ -40,16 +40,6 @@ variable "ephemeral_block_device" {
   default = []
 }
 
-//variable "use_num_suffix" {
-//  description = "Suffix to instances name"
-//  type = map(bool)
-//  default = {
-//    control-plane = true
-//    etcd          = true
-//    worker        = true
-//  }
-//}
-
 variable "name" {
   description = "Name of instances"
   type = string
