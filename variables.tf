@@ -124,7 +124,7 @@ variable "s3-backup-config" {
   default = {
     interval_hours = 12
     retention = 6
-    bucket_name = "rancher-backup"
+    bucket_name = "rancher-rke-k8s-backup"
     folder = "rancher"
     region = "us-east-2"
     endpoint = "s3.amazonaws.com"

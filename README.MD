@@ -35,6 +35,6 @@ k8s-api-sans-hosts = ["k8s.example.com"]
 |k8s-api-sans-hosts | rancher k8s api hosts list to authenticate k8s api | list(string)| no | yes |
 |k8s-network-plugin| k8s network plugin | string | canal | yes |
 |cloud-provider| rke cloud provider | string | aws | yes|
-|s3-backup-config| rke s3 backup config | map(string) | interval_hours = 12, retention = 6, bucket_name = "rancher",folder = "rancher", region = "us-east-2", endpoint = "s3.amazonaws.com" | yes|
+|s3-backup-config| rke s3 backup config | map(string) | interval_hours = 12, retention = 6, bucket_name = "rancher-rke-k8s-backup" ,folder = "rancher", region = "us-east-2", endpoint = "s3.amazonaws.com" | yes|
  
 
