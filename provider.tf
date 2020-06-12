@@ -3,6 +3,6 @@ provider "aws" {
   profile = "default"
 }
 
-provider "kubernetes" {
-  config_path = local_file.kube_cluster_yaml.filename
+terraform {
+  experiments = [variable_validation]
 }

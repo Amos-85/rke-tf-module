@@ -18,8 +18,8 @@ k8s-api-sans-hosts = ["k8s.example.com"]
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | ami | ID of AMI to use for the instance | string | ami-002ab867b8b8591d5 | yes |
-|instance_count | map of k8s instances by roles | map(string)| etcd=1,control-plane=1,worker=1 | yes |
-|instance_type | map of k8s instance types | map(string) | etcd=t2.large,control-plane=t2.large,worker=t2.large | yes|
+|instance_count | map object of k8s instances by roles | object | etcd=1,control-plane=1,worker=1 | yes |
+|instance_type | object map of k8s instance types | object | etcd=t2.large,control-plane=t2.large,worker=t2.large | yes|
 | root_block_device | root block device configuration | list(map(string)) | no | no |
 |ebs_block_device | ebs block device | list(map(string)) | no | no |
 |ephemeral_block_device| ephemeral block device |  list(map(string)) | no | no |
@@ -35,6 +35,6 @@ k8s-api-sans-hosts = ["k8s.example.com"]
 |k8s-api-sans-hosts | rancher k8s api hosts list to authenticate k8s api | list(string)| no | yes |
 |k8s-network-plugin| k8s network plugin | string | canal | yes |
 |cloud-provider| rke cloud provider | string | aws | yes|
-|s3-backup-config| rke s3 backup config | map(string) | interval_hours = 12, retention = 6, bucket_name = "rancher-rke-k8s-backup" ,folder = "rancher", region = "us-east-2", endpoint = "s3.amazonaws.com" | yes|
+|s3-backup-config| rke s3 backup config | map(string) | interval_hours = 12, retention = 6, bucket_name = null ,folder = "rancher", region = "us-east-2", endpoint = "s3.amazonaws.com" | yes|
  
 

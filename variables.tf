@@ -1,6 +1,10 @@
 variable "instance_count" {
-  description = "nodes count map"
-  type = map(number)
+  description = "nodes count map object"
+  type = object({
+    control-plane = number
+    etcd          = number
+    worker        = number
+  })
     default = {
     control-plane = 1
     etcd          = 1
@@ -10,7 +14,11 @@ variable "instance_count" {
 
 variable "instance_type" {
   description = "instance type"
-  type = map(string)
+  type = object({
+    control-plane = string
+    etcd = string
+    worker = string
+  })
   default = {
     control-plane = "t2.large"
     etcd          = "t2.large"
@@ -50,6 +58,10 @@ variable "ami" {
   description = "ami for ec2 instances"
   type = string
   default = "ami-002ab867b8b8591d5"
+  validation {
+    condition     = can(regex("^ami-", var.ami))
+    error_message = "The ami value must be a valid AMI id, starting with \"ami-\"."
+  }
 }
 
 variable "user" {
@@ -124,7 +136,7 @@ variable "s3-backup-config" {
   default = {
     interval_hours = 12
     retention = 6
-    bucket_name = "rancher-rke-k8s-backup"
+    bucket_name = null
     folder = "rancher"
     region = "us-east-2"
     endpoint = "s3.amazonaws.com"
