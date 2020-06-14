@@ -9,7 +9,7 @@
 key_name = "user"
 subnet_id = "subnet-56ea381a"
 vpc_security_group_ids = ["sg-0ff023a92f281ef45"]
-rke_ec2_ssh_key = "~/.ssh/amos.pem"
+rke_ec2_ssh_key = "~/.ssh/user.pem"
 k8s-api-sans-hosts = ["k8s.example.net"]
 instance_type = {
   worker = "t2.small"
