@@ -1,7 +1,7 @@
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
-  bucket = var.s3-backup-config.bucket_name
+  bucket = lookup(var.s3-backup-config, "bucket_name", null)
   acl    = "private"
 
   versioning = {

@@ -132,13 +132,6 @@ variable "cloud-provider" {
 
 variable "s3-backup-config" {
   description = "s3 backup configuration for cluster"
-  type = map(string)
-  default = {
-    interval_hours = 12
-    retention = 6
-    bucket_name = null
-    folder = "rancher"
-    region = "us-east-2"
-    endpoint = "s3.amazonaws.com"
-  }
+  type = map(any)
+  default = null
 }
