@@ -57,7 +57,7 @@ variable "name" {
 variable "ami" {
   description = "ami for ec2 instances"
   type = string
-  default = "ami-002ab867b8b8591d5"
+  default = "ami-08faee1387289d316"
   validation {
     condition     = can(regex("^ami-", var.ami))
     error_message = "The ami value must be a valid AMI id, starting with \"ami-\"."
