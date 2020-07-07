@@ -15,7 +15,7 @@ locals {
       tags = {
         Role = "controlplane"
         Name = "${var.name}-control-plane-${index}"
-        "kubernetes.io/cluster/${random_uuid.cluster-id.result}" = "owned"
+        "kubernetes.io/cluster/${var.k8s-cluster-name}-${random_uuid.cluster-id.result}" = "owned"
       }
           }
       ]
@@ -29,7 +29,7 @@ locals {
       tags = {
         Role = "etcd"
         Name = "${var.name}-etcd-${index}"
-        "kubernetes.io/cluster/${random_uuid.cluster-id.result}" = "owned"
+        "kubernetes.io/cluster/${var.k8s-cluster-name}-${random_uuid.cluster-id.result}}" = "owned"
       }
     }
     ]
@@ -43,7 +43,7 @@ locals {
       tags = {
         Role = "worker"
         Name = "${var.name}-worker-${index}"
-        "kubernetes.io/cluster/${random_uuid.cluster-id.result}" = "owned"
+        "kubernetes.io/cluster/${var.k8s-cluster-name}-${random_uuid.cluster-id.result}" = "owned"
       }
     }
     ]
