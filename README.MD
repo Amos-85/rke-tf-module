@@ -32,6 +32,9 @@ s3-backup-config = {
   region = "us-east-2"
   endpoint = "s3.amazonaws.com"
 }
+
+kube_api_feature_gates = "CSINodeInfo=true,CSIDriverRegistry=true,CSIBlockVolume=true,VolumeSnapshotDataSource=true"
+kubelet_feature_gates  = "CSINodeInfo=true,CSIDriverRegistry=true,CSIBlockVolume=true"
 ```
 
 ## Inputs
