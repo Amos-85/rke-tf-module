@@ -29,7 +29,7 @@ locals {
       tags = {
         Role = "etcd"
         Name = "${var.name}-etcd-${index}"
-        "kubernetes.io/cluster/${var.k8s-cluster-name}-${random_uuid.cluster-id.result}}" = "owned"
+        "kubernetes.io/cluster/${var.k8s-cluster-name}-${random_uuid.cluster-id.result}" = "owned"
       }
     }
     ]

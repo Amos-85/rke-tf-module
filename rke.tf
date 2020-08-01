@@ -33,6 +33,16 @@ resource "rke_cluster" "cluster" {
         }
       }
     }
+    kube_api {
+      extra_args = {
+        feature-gates = var.kube_api_feature_gates
+      }
+    }
+    kubelet {
+      extra_args = {
+        feature-gates = var.kubelet_feature_gates
+      }
+    }
   }
     authorization {
       mode = "rbac"

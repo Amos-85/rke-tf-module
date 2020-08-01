@@ -6,16 +6,24 @@
 
  * tfvars  file example:
  ```
-key_name = "user"
-subnet_id = "subnet-56ea381a"
-vpc_security_group_ids = ["sg-0ff023a92f281ef45"]
-rke_ec2_ssh_key = "~/.ssh/user.pem"
-k8s-api-sans-hosts = ["k8s.example.net"]
+instance_count = {
+  control-plane = 1
+  etcd          = 1
+  worker        = 2
+}
+
 instance_type = {
   worker = "t2.small"
   etcd = "t2.large"
   control-plane = "t2.large"
 }
+
+key_name = "user"
+subnet_id = "subnet-56ea381a"
+vpc_security_group_ids = ["sg-0ff023a92f281ef45"]
+rke_ec2_ssh_key = "~/.ssh/user.pem"
+k8s-api-sans-hosts = ["k8s.example.net"]
+
 s3-backup-config = {
   interval_hours = 12
   retention = 6
@@ -49,5 +57,6 @@ s3-backup-config = {
 |k8s-network-plugin| k8s network plugin | string | canal | yes |
 |cloud-provider| rke cloud provider | string | aws | yes|
 |s3-backup-config| rke s3 backup config | map(any) | no | yes|
- 
+|kube_api_feature_gates| kube api feature-gates| string | no | no | 
+|kubelet_feature_gates | kubelet feature-gates| string | no | no |
 

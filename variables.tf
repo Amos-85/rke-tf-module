@@ -135,3 +135,15 @@ variable "s3-backup-config" {
   type = map(any)
   default = null
 }
+
+variable "kube_api_feature_gates" {
+  description = "kube api feature gates"
+  type = string
+  default = null
+}
+
+variable "kubelet_feature_gates" {
+  description = "kubelet feature gates"
+  type = string
+  default = null
+}
