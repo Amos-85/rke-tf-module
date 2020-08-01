@@ -19,8 +19,6 @@ module "iam_policy" {
     "autoscaling:DescribeTags",
     "autoscaling:SetDesiredCapacity",
     "autoscaling:TerminateInstanceInAutoScalingGroup",
-    "autoscaling:DescribeAutoScalingGroups",
-    "autoscaling:DescribeLaunchConfigurations",
     "autoscaling:DescribeTags",
     "ec2:DescribeTags",
     "ec2:DeleteTags",
@@ -78,25 +76,24 @@ module "iam_policy" {
     "elasticloadbalancing:SetLoadBalancerPoliciesOfListener",
     "iam:CreateServiceLinkedRole",
     "kms:DescribeKey"
-        ],
-        "Resource": [
-            "*"
-        ]
+      ],
+      "Resource": [
+          "*"
+      ]
     },
     {
-            "Sid": "ListObjectsInBucket",
-            "Effect": "Allow",
-            "Action": ["s3:ListBucket"],
-            "Resource": ["arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}]
-        },
-        {
-            "Sid": "AllObjectActions",
-            "Effect": "Allow",
-            "Action": "s3:*Object",
-            "Resource": ["arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}/*"]
-        }
-
-    ]
+    "Sid": "ListObjectsInBucket",
+    "Effect": "Allow",
+    "Action": ["s3:ListBucket"],
+    "Resource": "arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}"
+  },
+  {
+    "Sid": "AllObjectActions",
+    "Effect": "Allow",
+    "Action": "s3:*Object",
+    "Resource": "arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}"
+    }
+  ]
 }
 EOF
 }
