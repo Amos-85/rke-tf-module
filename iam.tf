@@ -14,6 +14,12 @@ module "iam_policy" {
     "Effect": "Allow",
     "Action": [
     "autoscaling:DescribeAutoScalingGroups",
+    "autoscaling:DescribeAutoScalingInstances",
+    "autoscaling:DescribeLaunchConfigurations",
+    "autoscaling:DescribeTags",
+    "autoscaling:SetDesiredCapacity",
+    "autoscaling:TerminateInstanceInAutoScalingGroup",
+    "autoscaling:DescribeAutoScalingGroups",
     "autoscaling:DescribeLaunchConfigurations",
     "autoscaling:DescribeTags",
     "ec2:DescribeTags",
@@ -77,40 +83,19 @@ module "iam_policy" {
             "*"
         ]
     },
-
-
     {
-        "Effect": "Allow",
-        "Action": [
-            "s3:ListBucket"
-        ],
-        "Resource": [
-            "arn:aws:s3:::amos-test"
-        ]
-    },
-    {
-        "Effect": "Allow",
-        "Action": [
-            "s3:PutObject",
-            "s3:GetObject",
-            "s3:DeleteObject"
-        ],
-        "Resource": [
-            "arn:aws:s3:::amos-test/*"
-        ]
-    },
-    {
-        "Effect": "Allow",
-        "Action": [
-            "autoscaling:DescribeAutoScalingGroups",
-            "autoscaling:DescribeAutoScalingInstances",
-            "autoscaling:DescribeLaunchConfigurations",
-            "autoscaling:DescribeTags",
-            "autoscaling:SetDesiredCapacity",
-            "autoscaling:TerminateInstanceInAutoScalingGroup"
-        ],
-        "Resource": "*"
+            "Sid": "ListObjectsInBucket",
+            "Effect": "Allow",
+            "Action": ["s3:ListBucket"],
+            "Resource": ["arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}]
+        },
+        {
+            "Sid": "AllObjectActions",
+            "Effect": "Allow",
+            "Action": "s3:*Object",
+            "Resource": ["arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}/*"]
         }
+
     ]
 }
 EOF
