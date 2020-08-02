@@ -66,10 +66,10 @@ resource "rke_cluster" "cluster" {
     //  addons =<<EOL
     //---
     //EOL
-  restore {
-    restore = var.restore_rke.restore
-    restore_snapshot = var.restore_rke.snapshot_name
-  }
+//  restore {
+//    restore = var.restore_rke.restore
+//    restore_snapshot = var.restore_rke.snapshot_name
+//  }
   prefix_path = var.prefix_path
 }
 resource "local_file" "kube_cluster_yaml" {

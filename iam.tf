@@ -91,7 +91,7 @@ module "iam_policy" {
     "Sid": "AllObjectActions",
     "Effect": "Allow",
     "Action": "s3:*Object",
-    "Resource": "arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}"
+    "Resource": "arn:aws:s3:::${lookup(var.s3-backup-config, "bucket_name", null)}/*"
     }
   ]
 }
