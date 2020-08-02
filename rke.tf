@@ -66,11 +66,22 @@ resource "rke_cluster" "cluster" {
     //  addons =<<EOL
     //---
     //EOL
+  restore {
+    restore = var.restore_rke.restore
+    restore_snapshot = var.restore_rke.snapshot_name
+  }
+  prefix_path = var.prefix_path
 }
 resource "local_file" "kube_cluster_yaml" {
   filename = "./kube_config_cluster.yml"
   content  = rke_cluster.cluster.kube_config_yaml
   file_permission = "644"
 }
+resource "local_file" "rke_cluster_yaml" {
+  filename = "./cluster.yml"
+  content = rke_cluster.cluster.rke_cluster_yaml
+  file_permission = "644"
+}
+
 
 resource "random_uuid" "cluster-id" {}

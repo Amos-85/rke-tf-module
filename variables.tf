@@ -147,3 +147,18 @@ variable "kubelet_feature_gates" {
   type = string
   default = null
 }
+
+variable "restore_rke" {
+  description = "restore rke from snapshot"
+  type = map(any)
+  default = {
+    restore = false
+    snapshot_name = null
+  }
+}
+
+variable "prefix_path" {
+  description = " rke prefix path"
+  type = string
+  default = null
+}
