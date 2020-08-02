@@ -62,4 +62,6 @@ kubelet_feature_gates  = "CSINodeInfo=true,CSIDriverRegistry=true,CSIBlockVolume
 |s3-backup-config| rke s3 backup config | map(any) | no | yes|
 |kube_api_feature_gates| kube api feature-gates| string | no | no | 
 |kubelet_feature_gates | kubelet feature-gates| string | no | no |
+|prefix_path| prefix_path to store k8s resources| string | no | no|
+|restore_rke| restore rke from snapshot | map   | no | no|
 
